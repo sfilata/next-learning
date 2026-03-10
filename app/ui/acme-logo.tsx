@@ -1,4 +1,4 @@
-import { CurrencyYenIcon } from '@heroicons/react/24/outline';
+import { GlobeAltIcon } from '@heroicons/react/24/outline';
 import { lusitana } from './fonts';
 
 export default function AcmeLogo() {
@@ -6,7 +6,7 @@ export default function AcmeLogo() {
     <div
       className={`${lusitana.className} flex flex-row items-center leading-none text-white antialiased`}
     >
-      <CurrencyYenIcon className="h-12 w-12" />
+      <GlobeAltIcon className="h-12 w-12 rotate-[15deg]" />
       <p className="text-[44px]">Acme</p>
     </div>
   );
