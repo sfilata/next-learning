@@ -6,7 +6,7 @@ import { inter } from "@/app/ui/fonts";
 import { LatestInvoicesSkeleton, RevenueChartSkeleton } from "@/app/ui/skeletons";
 import { Suspense } from "react";
 
-export default async function () {
+export default async function Page() {
 
   return <main>
     <h1 className={`${inter.className} mb-4 text-xl md:text-2xl`}>Dashboard</h1>
