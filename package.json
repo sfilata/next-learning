@@ -4,11 +4,7 @@
     "build": "next build",
     "dev": "next dev --turbopack",
     "start": "next start",
-    "lint": "eslint . --fix",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
