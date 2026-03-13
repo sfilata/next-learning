@@ -1,5 +1,7 @@
 'use server';
 
+import { signIn, signOut } from "@/auth";
+import { AuthError } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import postgres from "postgres";
@@ -120,4 +122,29 @@ export async function deleteInvoice(id: string) {
   `;
 
   revalidatePath('/dashboard/invoices');
+}
+
+export async function authenticate(prevState: string | undefined, formData: FormData) {
+  try {
+    await signIn('credentials', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid email or password. Please try again.';
+        default:
+          return 'An unexpected error occurred during sign in. Please try again.';
+      }
+    }
+
+    throw error;
+  }
+}
+
+export async function logout(prevState: string | undefined, formData: FormData) {
+  try {
+    await signOut({ redirectTo: '/login' });
+  } catch (error) {
+    throw new Error('An unexpected error occurred during sign out. Please try again.');
+  }
 }
